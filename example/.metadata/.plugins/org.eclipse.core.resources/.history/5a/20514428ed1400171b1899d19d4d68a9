@@ -1,0 +1,41 @@
+package service.logic;
+
+import java.util.List;
+
+import domain.Customer;
+import service.CustomerService;
+import util.Pageable;
+
+public class CustomerServiceLogic implements CustomerService{
+
+	@Override
+	public Customer findOne(String id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Customer> findAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Customer> findAll(Pageable page) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void save(Customer customer) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void remote(String id) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

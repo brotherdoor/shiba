@@ -1,0 +1,36 @@
+package store.logic;
+
+import java.util.List;
+
+import domain.Customer;
+import store.CustomerStore;
+import util.Pageable;
+
+public class CustomerStoreLogic implements CustomerStore{
+
+	@Override
+	public Customer selectOne(String id) {
+		return null;
+	}
+
+	@Override
+	public List<Customer> selectAll() {
+		return null;
+	}
+
+	@Override
+	public List<Customer> selectAll(Pageable page) {
+		return null;
+	}
+
+	@Override
+	public void register(Customer customer) {
+		
+	}
+
+	@Override
+	public void delete(String id) {
+		
+	}
+
+}

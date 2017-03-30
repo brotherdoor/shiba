@@ -1,0 +1,15 @@
+package util;
+
+public class Pageable {
+	
+	private int index;
+	private int size;
+	
+	public Pageable() {}
+	
+	public Pageable(int index, int size){
+		this.index = index;
+		this.size = size;
+	}
+
+}

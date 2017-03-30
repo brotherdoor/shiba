@@ -1,0 +1,41 @@
+package store.logic;
+
+import java.util.List;
+
+import domain.Customer;
+import store.CustomerStore;
+import util.Pageable;
+
+public class CustomerStoreLogic implements CustomerStore{
+
+	@Override
+	public Customer selectOne(String id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Customer> selectAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Customer> selectAll(Pageable page) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void register(Customer customer) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void delete(String id) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

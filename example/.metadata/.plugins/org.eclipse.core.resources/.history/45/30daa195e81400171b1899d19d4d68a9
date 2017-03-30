@@ -1,0 +1,10 @@
+package main;
+
+import org.springframework.context.ApplicationContext;
+
+public class CustomerTest {
+	
+	public static void main(String[] args) {
+	}
+
+}

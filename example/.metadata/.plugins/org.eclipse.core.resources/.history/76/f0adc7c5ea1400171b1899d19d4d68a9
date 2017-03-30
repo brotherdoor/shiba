@@ -1,0 +1,51 @@
+package store.logic;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import domain.Customer;
+import store.CustomerStore;
+import util.Pageable;
+
+public class CustomerStoreLogic implements CustomerStore{
+
+	@Override
+	public Customer selectOne(String id) {
+		Customer cus = new Customer();
+		cus.setId(id);
+		cus.setName("屈巩");
+		cus.setAddress("备府");
+		cus.setEmail("08306@naver.com");
+		return cus;
+	}
+
+	@Override
+	public List<Customer> selectAll() {
+		List<Customer> list = new ArrayList<>();
+		for(int i = 0; i < 10; i ++){
+			Customer cus = new Customer();
+			cus.setId(i + "");
+			cus.setName("屈巩");
+			cus.setAddress("备府");
+			cus.setEmail("08306@naver.com");
+			list.add(cus);
+		}
+		return null;
+	}
+
+	@Override
+	public List<Customer> selectAll(Pageable page) {
+		return null;
+	}
+
+	@Override
+	public void register(Customer customer) {
+		
+	}
+
+	@Override
+	public void delete(String id) {
+		
+	}
+
+}

@@ -1,0 +1,26 @@
+package main;
+
+import java.util.List;
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import domain.Customer;
+import service.CustomerService;
+
+public class CustomerTest {
+	
+	public static void main(String[] args) {
+		
+		ApplicationContext ctx = new ClassPathXmlApplicationContext("beans.xml");
+		
+		CustomerService service = (CustomerService)ctx.getBean("customerService");
+		
+		List<Customer> list = service.findAll();
+		
+		for(Customer c : list){
+			System.out.println(c.toString());
+		}
+	}
+
+}
