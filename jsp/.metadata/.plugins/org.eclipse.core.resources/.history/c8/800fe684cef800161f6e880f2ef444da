@@ -1,0 +1,25 @@
+package store.logic;
+
+import java.util.List;
+
+import domain.BaseballTeam;
+import store.BaseballTeamStore;
+
+public class BaseballTeanStore implements BaseballTeamStore{
+	
+	
+	public BaseballTeanStore() {
+		
+	}
+
+	@Override
+	public BaseballTeam retrieve(String teamId) {
+		return null;
+	}
+
+	@Override
+	public List<BaseballTeam> retrieveAll() {
+		return null;
+	}
+
+}

@@ -1,0 +1,28 @@
+package store.logic;
+
+import java.util.List;
+
+import domain.Player;
+import store.PlayerStore;
+
+public class PlayerStoreLogic implements PlayerStore{
+
+	@Override
+	public void update(Player player) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public Player retrieve(String playerId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Player> retrieveByTeam(String teamId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

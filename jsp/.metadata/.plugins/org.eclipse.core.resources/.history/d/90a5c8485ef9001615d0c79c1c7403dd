@@ -1,0 +1,17 @@
+package store.test;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+import store.logic.PlayerStoreLogic;
+
+public class PlayerTest {
+	PlayerStoreLogic test = new PlayerStoreLogic();
+
+	@Test
+	public void test() {
+		fail("Not yet implemented");
+	}
+
+}

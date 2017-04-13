@@ -1,0 +1,40 @@
+package service;
+
+import domain.User;
+import store.UserStore;
+import store.UserStoreLogic;
+
+public class UserServiceLogic implements UserService{
+	
+	private UserStore store;
+	
+	public UserServiceLogic() {
+		store = new UserStoreLogic();
+	}
+
+	@Override
+	public User login(User user) {
+		User temp = find(user.getLoginId());
+		if(temp != null){
+			System.out.println("null이 아님");
+			if((user.getPassword()).equals(temp.getPassword())){
+				System.out.println("패스워드 같음");
+				return temp;
+			}
+			System.out.println("패스워드 다른");
+		}
+		System.out.println("null");
+		return null;
+	}
+
+	@Override
+	public boolean register(User user) {
+		return store.create(user);
+	}
+
+	@Override
+	public User find(String loginId) {
+		return store.read(loginId);
+	}
+
+}

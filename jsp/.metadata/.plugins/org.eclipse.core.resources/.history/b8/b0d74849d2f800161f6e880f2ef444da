@@ -1,0 +1,7 @@
+package store.logic;
+
+import store.PlayerStore;
+
+public class PlayerStoreLogic implements PlayerStore{
+
+}

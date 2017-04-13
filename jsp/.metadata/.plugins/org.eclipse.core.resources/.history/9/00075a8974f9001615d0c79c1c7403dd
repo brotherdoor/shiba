@@ -1,0 +1,23 @@
+package service.test;
+
+import static org.junit.Assert.*;
+
+import java.util.List;
+
+import org.junit.Test;
+
+import domain.BaseballTeam;
+import domain.Player;
+import service.logic.BaseballTeamServiceLogic;
+
+public class BaseballServiceTest {
+	BaseballTeamServiceLogic test = new BaseballTeamServiceLogic();
+
+	@Test
+	public void test() {
+		List<BaseballTeam> list = test.findTradeTargetPalyers("10");
+		List<Player> p = list.get(1).getPlayers();
+		assertEquals(5, p.size());
+	}
+
+}

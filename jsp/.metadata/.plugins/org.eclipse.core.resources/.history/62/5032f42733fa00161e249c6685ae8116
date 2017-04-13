@@ -1,0 +1,20 @@
+package shop.store.logic;
+
+import java.util.List;
+
+import shop.domain.Product;
+import shop.store.facade.ProductStore;
+
+public class ProductStoreLogic implements ProductStore{
+
+	@Override
+	public List<Product> findAll() {
+		return null;
+	}
+
+	@Override
+	public Product findByNo(int serial) {
+		return null;
+	}
+
+}

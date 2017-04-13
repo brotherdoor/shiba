@@ -1,0 +1,7 @@
+package store.logic;
+
+import store.MusicStore;
+
+public class MusicStoreLogic implements MusicStore{
+
+}

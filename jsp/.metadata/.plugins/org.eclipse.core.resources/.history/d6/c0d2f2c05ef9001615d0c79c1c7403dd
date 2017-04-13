@@ -1,0 +1,37 @@
+package store.test;
+
+import static org.junit.Assert.*;
+
+import java.util.List;
+
+import org.junit.Test;
+
+import domain.Player;
+import store.logic.PlayerStoreLogic;
+
+public class PlayerTest {
+	PlayerStoreLogic test = new PlayerStoreLogic();
+
+//	@Test
+//	public void test() {
+//		List<Player> list = test.retrieveByTeam("10");
+//		assertEquals(5, list.size());
+//	}
+	
+//	@Test
+//	public void test() {
+//		Player p = test.retrieve("1");
+//		assertEquals("∞≠∞Ê«–", p.getName());
+//	}
+	
+	@Test
+	public void test() {
+		Player p = test.retrieve("1");
+		p.setBackNumber(0430);
+		test.update(p);
+		Player up = test.retrieve("1");
+		
+		assertEquals("0430", up.getBackNumber());
+	}
+
+}

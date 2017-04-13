@@ -1,0 +1,5 @@
+package shop.store.logic;
+
+public class ProductStoreLogic {
+
+}

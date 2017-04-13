@@ -1,0 +1,27 @@
+package shop.store.logic;
+
+import java.util.List;
+
+import shop.domain.Product;
+import shop.store.facade.ProductStore;
+import shop.store.utils.ConnectionFactory;
+
+public class ProductStoreLogic implements ProductStore{
+	
+	private ConnectionFactory factory;
+	
+	public ProductStoreLogic() {
+		factory = ConnectionFactory.getInstance();
+	}
+
+	@Override
+	public List<Product> findAll() {
+		return null;
+	}
+
+	@Override
+	public Product findByNo(int serial) {
+		return null;
+	}
+
+}

@@ -1,0 +1,37 @@
+package hr.controller;
+
+import java.io.IOException;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import hr.domain.Employee;
+import hr.service.HumanResourceService;
+import hr.service.logic.HumanResourceServiceLogic;
+
+@WebServlet("/employee/create.do")
+public class EmpCreateController extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+	
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) 
+			throws ServletException, IOException {
+		Employee emp = new Employee();
+		emp.setDeptNo((String)req.getParameter("deptNo"));
+		req.setAttribute("employee", emp);
+		req.getRequestDispatcher("/employee/creat.jsp").forward(req, resp);
+	}
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) 
+			throws ServletException, IOException {
+		HumanResourceService service = new HumanResourceServiceLogic();
+		Employee emp = (Employee)request.getAttribute("employee");
+		emp.setName(request.getParameter("empName"));
+		emp.setNo(request.getParameter("empNo"));
+		service.registEmployee(emp);
+		response.sendRedirect(request.getContextPath() + "/views/employee/list.do");
+	}
+
+}

@@ -1,0 +1,19 @@
+package test;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+import domain.BaseballTeam;
+import store.BaseballTeamStore;
+import store.logic.BaseballTeamStoreLogic;
+
+public class BaseballTeanTest {
+	BaseballTeamStoreLogic test = new BaseballTeamStoreLogic();
+	@Test
+	public void test() {
+		BaseballTeam team = test.retrieve(String.valueOf(1));
+		System.out.println(team.toString());
+	}
+
+}

@@ -1,0 +1,21 @@
+package store.test;
+
+import static org.junit.Assert.*;
+
+import java.util.List;
+
+import org.junit.Test;
+
+import domain.Player;
+import store.logic.PlayerStoreLogic;
+
+public class PlayerTest {
+	PlayerStoreLogic test = new PlayerStoreLogic();
+
+	@Test
+	public void test() {
+		List<Player> list = test.retrieveByTeam("10");
+		assertEquals(5, list.size());
+	}
+
+}

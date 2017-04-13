@@ -1,0 +1,7 @@
+package hr.service.logic;
+
+import hr.service.HumanResourceService;
+
+public class HumanResourceServiceLogic implements HumanResourceService{
+
+}

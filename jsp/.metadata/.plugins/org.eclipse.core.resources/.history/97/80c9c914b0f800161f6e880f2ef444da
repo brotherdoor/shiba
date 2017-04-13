@@ -1,0 +1,28 @@
+package service.logic;
+
+import java.util.List;
+
+import domain.Music;
+import service.UserMusicService;
+
+public class UserMusicServiceLogic implements UserMusicService{
+
+	@Override
+	public boolean register(String userId, int musicId) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean remove(String userId, int musicId) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public List<Music> findMusicsByUser(String userId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

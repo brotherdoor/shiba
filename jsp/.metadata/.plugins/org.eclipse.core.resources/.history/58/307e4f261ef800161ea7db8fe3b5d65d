@@ -1,0 +1,74 @@
+package store.logic;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.util.List;
+
+import domain.Music;
+import store.UserMusicStore;
+import store.utils.ConnectionFactory;
+import store.utils.JdbcUtils;
+
+public class UserMusicStoreLogic implements UserMusicStore{
+	
+	ConnectionFactory factory;
+	
+	public UserMusicStoreLogic() {
+		factory = ConnectionFactory.getInstance();
+	}
+
+	@Override
+	public boolean create(String userId, int musicId) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		int resCount = 0;
+		try {
+			conn = factory.createConnetion();
+			pstmt = conn.prepareStatement(
+					"insert into user_music_tb valuse(?, ?)");
+			pstmt.setString(1, userId);
+			pstmt.setInt(2, musicId);
+			resCount = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally{
+			JdbcUtils.close(conn, pstmt);
+		}
+		
+		return false;
+	}
+
+	@Override
+	public boolean delete(String userId, int musicId) {
+		return false;
+	}
+
+	@Override
+	public boolean existUserMusic(String userId, int musicId) {
+		return false;
+	}
+
+	@Override
+	public List<Music> readMusicsByUser(String userId) {
+		return null;
+	}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

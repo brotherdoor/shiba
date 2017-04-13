@@ -1,0 +1,7 @@
+package service.logic;
+
+import service.BaseballTeamService;
+
+public class BaseballTeamServiceLogic implements BaseballTeamService{
+
+}

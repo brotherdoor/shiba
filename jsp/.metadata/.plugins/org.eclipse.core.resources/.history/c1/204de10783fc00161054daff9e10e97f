@@ -1,0 +1,36 @@
+package hr.store.logic;
+
+import java.util.List;
+
+import hr.domain.Employee;
+import hr.store.EmployeeStore;
+
+public class EmployeeStoreLogic implements EmployeeStore{
+
+	@Override
+	public List<Employee> retrieveAll() {
+		return null;
+	}
+
+	@Override
+	public void create(Employee employee) {
+		
+	}
+
+	@Override
+	public List<Employee> retrieveByDeptNo(String deptNo) {
+		return null;
+	}
+
+	@Override
+	public void update(Employee employee) {
+		
+	}
+
+	@Override
+	public Employee retrieve(String empNo) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

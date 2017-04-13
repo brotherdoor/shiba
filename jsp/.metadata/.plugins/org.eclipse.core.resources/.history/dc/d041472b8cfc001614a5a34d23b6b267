@@ -1,0 +1,23 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<ul>
+        <li class="user-info">
+            ${loginId } 님
+        </li>
+        <li>
+            <a href="deptList.html">부서목록</a>
+        </li>
+        <li>
+            <a href="deptCreate.html">부서등록</a>
+        </li>
+        <li>
+            <a href="employeeList.html">전체직원목록</a>
+        </li>
+        <li>
+            <a href="employeeCreate.html">직원등록</a>
+        </li>
+        <li>
+            <a href="#">시스템관리</a>
+        </li>
+    </ul>

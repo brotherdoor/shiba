@@ -1,0 +1,59 @@
+package hr.service.logic;
+
+import java.util.List;
+
+import hr.domain.Department;
+import hr.domain.Employee;
+import hr.service.HumanResourceService;
+
+public class HumanResourceServiceLogic implements HumanResourceService{
+
+	@Override
+	public List<Department> findAllDepartment() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void registeDepartment(Department department) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public Department findDepartment(String deptNo) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Employee> findAllEmployee() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void registEmployee(Employee employee) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void removeDepartment(String deptNo) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public Employee findEmployee(String empNo) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void modify(Employee employee) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

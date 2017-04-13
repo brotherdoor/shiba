@@ -1,0 +1,4 @@
+eclipse.preferences.version=1
+encoding//src/shop/domain/Order.java=UTF-8
+encoding//src/shop/domain/PaymentMethod.java=UTF-8
+encoding//src/shop/domain/Product.java=UTF-8

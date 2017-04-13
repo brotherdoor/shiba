@@ -1,0 +1,7 @@
+package shop.service.logic;
+
+import shop.service.facade.CustomerService;
+
+public class CustomerServiceLogic implements CustomerService{
+
+}

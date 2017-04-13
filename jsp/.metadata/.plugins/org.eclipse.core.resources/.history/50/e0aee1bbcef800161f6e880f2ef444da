@@ -1,0 +1,26 @@
+package store.logic;
+
+import java.util.List;
+
+import domain.BaseballTeam;
+import store.BaseballTeamStore;
+import store.utils.ConnectionFactory;
+
+public class BaseballTeanStore implements BaseballTeamStore{
+	ConnectionFactory factory;
+	
+	public BaseballTeanStore() {
+		factory = ConnectionFactory.getInstance();
+	}
+
+	@Override
+	public BaseballTeam retrieve(String teamId) {
+		return null;
+	}
+
+	@Override
+	public List<BaseballTeam> retrieveAll() {
+		return null;
+	}
+
+}

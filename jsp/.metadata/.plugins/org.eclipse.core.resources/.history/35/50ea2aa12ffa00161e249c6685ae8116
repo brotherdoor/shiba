@@ -1,0 +1,18 @@
+package shop.service.logic;
+
+import shop.domain.Customer;
+import shop.service.facade.CustomerService;
+
+public class CustomerServiceLogic implements CustomerService{
+
+	@Override
+	public boolean login(String userId, String password) {
+		return false;
+	}
+
+	@Override
+	public Customer getCustomer(String userId) {
+		return null;
+	}
+
+}

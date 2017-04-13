@@ -1,0 +1,13 @@
+package shop.store.logic;
+
+import shop.domain.Customer;
+import shop.store.facade.CustomerStore;
+
+public class CustomerStoreLogic implements CustomerStore{
+
+	@Override
+	public Customer findCustomerById(String id) {
+		return null;
+	}
+
+}

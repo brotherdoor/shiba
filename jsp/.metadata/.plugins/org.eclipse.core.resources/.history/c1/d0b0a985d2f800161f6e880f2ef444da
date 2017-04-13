@@ -1,0 +1,34 @@
+package store.logic;
+
+import java.util.List;
+
+import domain.Player;
+import store.PlayerStore;
+import store.utils.ConnectionFactory;
+
+public class PlayerStoreLogic implements PlayerStore{
+	private ConnectionFactory factory;
+	
+	public PlayerStoreLogic() {
+		factory = ConnectionFactory.getInstance();
+	}
+
+	@Override
+	public void update(Player player) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public Player retrieve(String playerId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Player> retrieveByTeam(String teamId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

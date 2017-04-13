@@ -1,0 +1,19 @@
+package test;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+import store.BaseballTeamStore;
+import store.logic.BaseballTeamStoreLogic;
+
+public class BaseballTeanTest {
+	BaseballTeamStoreLogic test = new BaseballTeamStoreLogic();
+	
+
+	@Test
+	public void test() {
+		fail("Not yet implemented");
+	}
+
+}

@@ -1,0 +1,13 @@
+package shop.store.logic;
+
+import shop.domain.Order;
+import shop.store.facade.OrderStore;
+
+public class OrderStoreLogic implements OrderStore{
+
+	@Override
+	public boolean insertOrder(Order order) {
+		return false;
+	}
+
+}

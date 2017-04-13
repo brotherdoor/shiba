@@ -1,0 +1,28 @@
+package shop.service.logic;
+
+import java.util.List;
+
+import shop.domain.Product;
+import shop.service.facade.ProductService;
+
+public class ProductServiceLogic implements ProductService{
+
+	@Override
+	public List<Product> getAllProducts() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Product> getBuyProducts(String[] serials) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Product getProduct(String serial) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

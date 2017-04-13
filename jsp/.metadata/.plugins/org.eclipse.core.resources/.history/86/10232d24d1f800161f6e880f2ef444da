@@ -1,0 +1,39 @@
+package store.logic;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.List;
+
+import domain.BaseballTeam;
+import store.BaseballTeamStore;
+import store.utils.ConnectionFactory;
+
+public class BaseballTeanStore implements BaseballTeamStore{
+	ConnectionFactory factory;
+	
+	public BaseballTeanStore() {
+		factory = ConnectionFactory.getInstance();
+	}
+
+	@Override
+	public BaseballTeam retrieve(String teamId) {
+		Connection conn = null;
+		PreparedStatement patmt = null;
+		ResultSet rs = null;
+		try {
+			conn = factory.createConnetion();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return null;
+	}
+
+	@Override
+	public List<BaseballTeam> retrieveAll() {
+		return null;
+	}
+
+}

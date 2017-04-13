@@ -1,0 +1,33 @@
+package shop.service.logic;
+
+import java.util.List;
+
+import shop.domain.Product;
+import shop.service.facade.ProductService;
+import shop.store.facade.ProductStore;
+import shop.store.logic.ProductStoreLogic;
+
+public class ProductServiceLogic implements ProductService{
+	
+	private ProductStore store;
+	
+	public ProductServiceLogic() {
+		store = new ProductStoreLogic();
+	}
+
+	@Override
+	public List<Product> getAllProducts() {
+		return store.findAll();
+	}
+
+	@Override
+	public List<Product> getBuyProducts(String[] serials) {
+		return null;
+	}
+
+	@Override
+	public Product getProduct(String serial) {
+		return null;
+	}
+
+}

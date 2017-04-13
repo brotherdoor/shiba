@@ -1,0 +1,7 @@
+package service.logic;
+
+import service.MusicService;
+
+public class MusicServiceLogic implements MusicService{
+
+}

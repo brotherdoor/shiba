@@ -1,0 +1,17 @@
+package hr.store.test;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+import hr.store.logic.DepartmentStoreLogic;
+
+public class DeptStoreTest {
+	private DepartmentStoreLogic test = new DepartmentStoreLogic();
+
+	@Test
+	public void test() {
+		test.delete("99");
+	}
+
+}

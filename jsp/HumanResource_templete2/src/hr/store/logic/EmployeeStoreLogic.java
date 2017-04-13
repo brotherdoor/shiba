@@ -1,0 +1,139 @@
+package hr.store.logic;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
+
+import hr.domain.Employee;
+import hr.store.EmployeeStore;
+import hr.store.factory.ConnectionFactory;
+import hr.store.utils.JdbcUtils;
+
+public class EmployeeStoreLogic implements EmployeeStore{
+	private ConnectionFactory factory;
+	
+	public EmployeeStoreLogic() {
+		factory = ConnectionFactory.getInstance();
+	}
+
+	@Override
+	public List<Employee> retrieveAll() {
+		Connection conn = null;
+		Statement stmt = null;
+		ResultSet rs = null;
+		List<Employee> list = new ArrayList<>();
+		try {
+			conn = factory.createConnetion();
+			StringBuilder sql = new StringBuilder();
+			sql.append("select empNo, name, deptNo ");
+			sql.append("from employee_tb ");
+//			sql.append("order by empNo asc");
+			stmt = conn.createStatement();
+			rs = stmt.executeQuery(sql.toString());
+			while(rs.next()){
+				Employee emp = new Employee();
+				emp.setNo(rs.getString("empNo"));
+				emp.setName(rs.getString("name"));
+				emp.setDeptNo(rs.getString("deptNo"));
+				list.add(emp);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally{
+			JdbcUtils.close(conn, stmt, rs);
+		}
+		return list;
+	}
+
+	@Override
+	public void create(Employee employee) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		try {
+			conn = factory.createConnetion();
+			pstmt = conn.prepareStatement(
+					"insert into employee_tb (empNo, name, deptNo) values(?,?,?)");
+			pstmt.setString(1, employee.getNo());
+			pstmt.setString(2, employee.getName());
+			pstmt.setString(3, employee.getDeptNo());
+			pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally{
+			JdbcUtils.close(conn, pstmt);
+		}
+	}
+
+	@Override
+	public List<Employee> retrieveByDeptNo(String deptNo) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		List<Employee> list = new ArrayList<>();
+		try {
+			conn = factory.createConnetion();
+			pstmt = conn.prepareStatement(
+					"select empNo, name, deptNo from employee_tb where deptNo = ? order by empNo asc");
+			pstmt.setString(1, deptNo);
+			rs = pstmt.executeQuery();
+			while(rs.next()){
+				Employee emp = new Employee();
+				emp.setNo(rs.getString("empNo"));
+				emp.setName(rs.getString("name"));
+				emp.setDeptNo(rs.getString("deptNo"));
+				list.add(emp);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally{
+			JdbcUtils.close(conn, pstmt, rs);
+		}
+		return list;
+	}
+
+	@Override
+	public void update(Employee employee) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		try {
+			conn = factory.createConnetion();
+			pstmt = conn.prepareStatement(
+					"update employee_tb set deptNo = ? where empNo = ?");
+			pstmt.setString(1, employee.getDeptNo());
+			pstmt.setString(2, employee.getNo());
+			pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally{
+			JdbcUtils.close(conn, pstmt);
+		}
+	}
+
+	@Override
+	public Employee retrieve(String empNo) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		Employee emp = null;
+		try {
+			conn = factory.createConnetion();
+			pstmt = conn.prepareStatement(
+					"select empNo, name, deptNo from employee_tb where empNo = ?");
+			pstmt.setString(1, empNo);
+			rs = pstmt.executeQuery();
+			if(rs.next()){
+				emp = new Employee(rs.getString("empNo"), rs.getString("name"), rs.getString("deptNo"));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally{
+			JdbcUtils.close(conn, pstmt, rs);
+		}
+		return emp;
+	}
+
+}

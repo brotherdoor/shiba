@@ -1,0 +1,39 @@
+package controller;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import domain.BaseballTeam;
+import domain.Player;
+import service.BaseballTeamService;
+import service.logic.BaseballTeamServiceLogic;
+
+@WebServlet("/playList.do")
+public class PlayerListController extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) 
+			throws ServletException, IOException {
+		BaseballTeamService service = new BaseballTeamServiceLogic();
+		BaseballTeam team = service.findTeam(request.getParameter("teamId"));
+		List<BaseballTeam> list = new ArrayList<>();
+		list.add(team);
+		request.setAttribute("teamList", list);
+		request.getRequestDispatcher("playerList.jsp").forward(request, response);
+	}
+
+}
+
+
+
+
+
+
+

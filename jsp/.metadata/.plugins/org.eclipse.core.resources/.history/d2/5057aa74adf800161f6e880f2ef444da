@@ -1,0 +1,7 @@
+package service.logic;
+
+import service.UserMusicService;
+
+public class UserMusicServiceLogic implements UserMusicService{
+
+}

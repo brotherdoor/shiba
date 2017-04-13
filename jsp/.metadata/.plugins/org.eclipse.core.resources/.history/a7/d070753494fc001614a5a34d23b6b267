@@ -1,0 +1,50 @@
+package hr.store.logic;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.util.List;
+
+import hr.domain.Department;
+import hr.store.DepartmentStore;
+import hr.store.factory.ConnectionFactory;
+
+public class DepartmentStoreLogic implements DepartmentStore{
+	private ConnectionFactory factory;
+	
+	public DepartmentStoreLogic() {
+		factory = ConnectionFactory.getInstance();
+	}
+
+	@Override
+	public List<Department> retrieveAll() {
+		return null;
+	}
+
+	@Override
+	public void create(Department department) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		try {
+			conn = factory.createConnetion();
+			pstmt = conn.prepareStatement(
+					"insert into dept_tb (deptNo, deptName) values(?,?)");
+			pstmt.setString(1, department.getNo());
+			pstmt.setString(2, department.getName());
+			pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+
+	@Override
+	public Department retrieve(String deptNo) {
+		return null;
+	}
+
+	@Override
+	public void delete(String deptNo) {
+		
+	}
+
+}

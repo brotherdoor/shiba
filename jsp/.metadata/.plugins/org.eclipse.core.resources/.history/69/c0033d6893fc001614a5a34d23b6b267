@@ -1,0 +1,59 @@
+package hr.service.logic;
+
+import java.util.List;
+
+import hr.domain.Department;
+import hr.domain.Employee;
+import hr.service.HumanResourceService;
+import hr.store.DepartmentStore;
+import hr.store.EmployeeStore;
+
+public class HumanResourceServiceLogic implements HumanResourceService{
+	private DepartmentStore deptStore;
+	private EmployeeStore empStore;
+	
+	public HumanResourceServiceLogic() {
+		// TODO Auto-generated constructor stub
+	}
+
+	@Override
+	public List<Department> findAllDepartment() {
+		return null;
+	}
+
+	@Override
+	public void registeDepartment(Department department) {
+		
+	}
+
+	@Override
+	public Department findDepartment(String deptNo) {
+		return null;
+	}
+
+	@Override
+	public List<Employee> findAllEmployee() {
+		return null;
+	}
+
+	@Override
+	public void registEmployee(Employee employee) {
+		
+	}
+
+	@Override
+	public void removeDepartment(String deptNo) {
+		
+	}
+
+	@Override
+	public Employee findEmployee(String empNo) {
+		return null;
+	}
+
+	@Override
+	public void modify(Employee employee) {
+		
+	}
+
+}

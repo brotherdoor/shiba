@@ -1,0 +1,47 @@
+package store.logic;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.util.List;
+
+import domain.Player;
+import store.PlayerStore;
+import store.utils.ConnectionFactory;
+import store.utils.JdbcUtils;
+
+public class PlayerStoreLogic implements PlayerStore{
+	private ConnectionFactory factory;
+	public PlayerStoreLogic() {
+		factory = ConnectionFactory.getInstance();
+	}
+	@Override
+	public void update(Player player) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		try {
+			conn = factory.createConnetion();
+			pstmt = conn.prepareStatement("update player_tb set teamid=? where id=?");
+			pstmt.setString(1, player.getTeamId());
+			pstmt.setString(2, player.getPlayerId());
+			pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally{
+			JdbcUtils.close(conn, pstmt);
+		}
+	}
+
+	@Override
+	public Player retrieve(String playerId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Player> retrieveByTeam(String teamId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

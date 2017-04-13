@@ -1,0 +1,30 @@
+package hr.store.logic;
+
+import java.util.List;
+
+import hr.domain.Department;
+import hr.store.DepartmentStore;
+
+public class DepartmentStoreLogic implements DepartmentStore{
+
+	@Override
+	public List<Department> retrieveAll() {
+		return null;
+	}
+
+	@Override
+	public void create(Department department) {
+		
+	}
+
+	@Override
+	public Department retrieve(String deptNo) {
+		return null;
+	}
+
+	@Override
+	public void delete(String deptNo) {
+		
+	}
+
+}

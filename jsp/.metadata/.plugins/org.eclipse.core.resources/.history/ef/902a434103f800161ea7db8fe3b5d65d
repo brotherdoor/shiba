@@ -1,0 +1,46 @@
+package controller;
+
+import java.io.IOException;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import domain.User;
+import service.MusicService;
+import service.MusicServiceLogic;
+import service.UserService;
+import service.UserServiceLogic;
+
+@WebServlet("/login.do")
+public class LoginController extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+	
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) 
+			throws ServletException, IOException {
+		response.sendRedirect("login.jsp");
+	}
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) 
+			throws ServletException, IOException {
+		request.setCharacterEncoding("utf-8");
+		response.setContentType("text/html;charset=utf-8");
+		String id = request.getParameter("loginId");
+		String password = request.getParameter("password");
+		User login = new User(id, password);
+		
+		UserService service = new UserServiceLogic();
+		User user = service.login(login);
+		System.out.println(login.toString());
+		System.out.println(user.toString());
+		if(user != null){
+			request.setAttribute("userId", user.getName());
+			response.sendRedirect("list.do");
+		}else{
+			response.sendRedirect("null.jsp");
+		}
+		
+	}
+
+}

@@ -1,0 +1,30 @@
+package store;
+
+import java.util.List;
+
+import domain.Music;
+import store.utils.ConnectionFactory;
+
+public class MusicStoreLogic implements MusicStore{
+	ConnectionFactory factory;
+	
+	public MusicStoreLogic() {
+		factory = ConnectionFactory.getInstance();
+	}
+
+	@Override
+	public Music read(int id) {
+		return null;
+	}
+
+	@Override
+	public List<Music> readByName(String name) {
+		return null;
+	}
+
+	@Override
+	public List<Music> readAll() {
+		return null;
+	}
+
+}

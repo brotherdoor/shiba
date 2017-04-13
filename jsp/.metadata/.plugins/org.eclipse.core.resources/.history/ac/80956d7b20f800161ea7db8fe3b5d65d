@@ -1,0 +1,121 @@
+package store.logic;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
+import domain.Music;
+import store.UserMusicStore;
+import store.utils.ConnectionFactory;
+import store.utils.JdbcUtils;
+
+public class UserMusicStoreLogic implements UserMusicStore{
+	
+	ConnectionFactory factory;
+	
+	public UserMusicStoreLogic() {
+		factory = ConnectionFactory.getInstance();
+	}
+
+	@Override
+	public boolean create(String userId, int musicId) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		int resCount = 0;
+		try {
+			conn = factory.createConnetion();
+			pstmt = conn.prepareStatement(
+					"insert into user_music_tb valuse(?, ?)");
+			pstmt.setInt(1, musicId);
+			pstmt.setString(2, userId);
+			resCount = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally{
+			JdbcUtils.close(conn, pstmt);
+		}
+		return resCount > 0;
+	}
+
+	@Override
+	public boolean delete(String userId, int musicId) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		int rsCount = 0;
+		try {
+			conn = factory.createConnetion();
+			pstmt = conn.prepareStatement(
+					"delete from user_music_tb where user_Id=? && music_Id=?");
+			pstmt.setString(1, userId);
+			pstmt.setInt(2, musicId);
+			rsCount = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally{
+			JdbcUtils.close(conn, pstmt);
+		}
+		return rsCount > 0;
+	}
+
+	@Override
+	public boolean existUserMusic(String userId, int musicId) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		boolean result = false;
+		try {
+			conn = factory.createConnetion();
+			pstmt = conn.prepareStatement(
+					"select music_id, user_id from user_music_tb where user_Id=? && music_Id=?");
+			pstmt.setString(1, userId);
+			pstmt.setInt(2, musicId);
+			rs = pstmt.executeQuery();
+			if(rs.next()) result = true;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally{
+			JdbcUtils.close(conn, pstmt, rs);
+		}
+		return result;
+	}
+
+	@Override
+	public List<Music> readMusicsByUser(String userId) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		List<Music> list = new ArrayList<>();
+		try {
+			conn = factory.createConnetion();
+			pstmt = conn.prepareStatement(
+					"select id, name, artist_name, album_title, image, agent_name from music_tb "
+					+ "where id=(select music_id from user_music_tb where user_id=?)");
+			pstmt.setString(1, userId);
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

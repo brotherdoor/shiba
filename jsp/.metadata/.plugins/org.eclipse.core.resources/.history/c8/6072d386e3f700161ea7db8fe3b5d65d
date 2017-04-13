@@ -1,0 +1,24 @@
+package store;
+
+import java.util.List;
+
+import domain.Music;
+
+public class MusicStoreLogic implements MusicStore{
+
+	@Override
+	public Music read(int id) {
+		return null;
+	}
+
+	@Override
+	public List<Music> readByName(String name) {
+		return null;
+	}
+
+	@Override
+	public List<Music> readAll() {
+		return null;
+	}
+
+}

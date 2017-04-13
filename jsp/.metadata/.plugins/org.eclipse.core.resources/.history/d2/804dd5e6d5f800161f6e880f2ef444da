@@ -1,0 +1,57 @@
+package service.logic;
+
+import java.util.List;
+
+import domain.BaseballTeam;
+import domain.Player;
+import service.BaseballTeamService;
+import store.BaseballTeamStore;
+import store.PlayerStore;
+import store.logic.BaseballTeamStoreLogic;
+import store.logic.PlayerStoreLogic;
+
+public class BaseballTeamServiceLogic implements BaseballTeamService{
+	
+	private BaseballTeamStore teamStore;
+	private PlayerStore playerStore;
+	
+	public BaseballTeamServiceLogic() {
+		teamStore = new BaseballTeamStoreLogic();
+		playerStore = new PlayerStoreLogic();
+	}
+
+	@Override
+	public BaseballTeam findTeam(String teamId) {
+		return teamStore.retrieve(teamId);
+	}
+
+	@Override
+	public List<BaseballTeam> findAllTeams() {
+		return teamStore.retrieveAll();
+	}
+
+	@Override
+	public List<BaseballTeam> findAllTeamsWithPlayers() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<BaseballTeam> findTradeTargetPalyers(String teamId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Player findPlayer(String playerId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void tradePlayer(String sourcePlayerId, String targetPlayerId) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

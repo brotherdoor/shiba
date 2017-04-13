@@ -1,0 +1,40 @@
+package hr.store.logic;
+
+import java.util.List;
+
+import hr.domain.Employee;
+import hr.store.EmployeeStore;
+
+public class EmployeeStoreLogic implements EmployeeStore{
+
+	@Override
+	public List<Employee> retrieveAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void create(Employee employee) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public List<Employee> retrieveByDeptNo(String deptNo) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void update(Employee employee) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public Employee retrieve(String empNo) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

@@ -1,0 +1,36 @@
+package shop.store.logic;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+
+import shop.domain.Customer;
+import shop.store.facade.CustomerStore;
+import shop.store.utils.ConnectionFactory;
+
+public class CustomerStoreLogic implements CustomerStore{
+	
+	private ConnectionFactory factory;
+	
+	public CustomerStoreLogic() {
+		factory = ConnectionFactory.getInstance();
+	}
+
+	@Override
+	public Customer findCustomerById(String id) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		
+		return null;
+	}
+
+}
+
+
+
+
+
+
+
+
+
+
